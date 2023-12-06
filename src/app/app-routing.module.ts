@@ -19,11 +19,11 @@ const routes: Routes =[
   },
   {
     path: 'countries',
-    // Para conectar los route child es necesario hace el siguiente llamado
+    // Para conectar los route child es necesario hace el siguiente llamado (Lazy load, 'carga perezosa')
     loadChildren: () => import('./countries/countries.module').then( m => m.CountriesModule )
   },
   {
-    // Cualquier otra path que no este en esta lista se redireccionara al home
+    // Cualquier otra path que no este en esta lista se redireccionara a: home (en este caso es countries)
     path: '**',
     redirectTo: 'countries'
   },
@@ -31,7 +31,7 @@ const routes: Routes =[
 
 @NgModule({
   imports:[
-    // si este es el archivo principal de rutas entonces se coloca 'for...', en caso contrario sera forChild'
+    // si este es el archivo principal de rutas entonces se coloca 'forRoot', en caso contrario sera forChild'
     RouterModule.forRoot(routes),
   ],
   exports:[
