@@ -2,6 +2,9 @@
   type="text"
   [placeholder]="placeholder"
   class="form-control"
-  (keyup.enter)="mostrarValor(txtInput.value)"
   #txtInput
->
+  (keyup)="onKeyPress(txtInput.value)"
+  [value]="initialValue"
+  >
+
+  <!-- (keyup.enter)="mostrarValor(txtInput.value)" -->
